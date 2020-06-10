@@ -9,8 +9,8 @@ DATE_FORMAT = '%Y%m%d'
 
 
 class DayType(IntEnum):
-    working = 0
-    not_working = 1
+    WORKING = 0
+    NOT_WORKING = 1
 
 
 @lru_cache
