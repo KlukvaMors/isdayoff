@@ -20,10 +20,9 @@ class ProdCalendar:
     """Производственный календарь.  Обёртка на API https://isdayoff.ru/. Есть кеширование результатов"""
     URL = 'https://isdayoff.ru/'
     DATE_FORMAT = '%Y%m%d'
-    CACHE_DIR = 'cache'
 
-    def __init__(self, cache=True):
-        self.memory = Memory(self.CACHE_DIR if cache else None, verbose=1)
+    def __init__(self, cache=True, cache_dir='cache/'):
+        self.memory = Memory(cache_dir if cache else None, verbose=1)
 
     def _check(self, day: date) -> DayType:
         req = requests.get(self.URL + day.strftime(self.DATE_FORMAT))
@@ -38,11 +37,13 @@ class ProdCalendar:
         return self.check(date.today())
 
     def next_work_day(self, day: date) -> date:
+        """Если день выходной, то покажет ближайший рабочий день"""
         while self.check(day) != DayType.WORKING:
             day += timedelta(days=1)
         return day
 
     def previous_work_day(self, day: date) -> date:
+        """Если день выходной, то покажет ближайший предыдущий рабочий день"""
         while self.check(day) != DayType.WORKING:
             day -= timedelta(days=1)
         return day
