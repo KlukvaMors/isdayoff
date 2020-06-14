@@ -25,20 +25,15 @@ calendar = ProdCalendar()
 
 if calendar.today() == DayType.WORKING:
     print('Мля, сегодня работать...')
+    print('Но выходные будут ' + str(calendar.next(date.today(), DayType.NOT_WORKING)))
 elif calendar.today() == DayType.NOT_WORKING:
     print('Ура, выходной день!')
-
-# закешируем результаты на январь 2020,
-# так как каждый раз обращаться с серверу слишком долго
-calendar.cache_month(2020, 1)
-
-first_day = date(2020, 1, 1)
-if calendar.check(first_day) == DayType.NOT_WORKING:
-    print('Отдыхай, рабочий день будет '+str(calendar.next_work_day(first_day)))
+    print('Но работать надо ' + str(calendar.next(date.today(), DayType.WORKING)))
 ```
 
 ### TODO
 
 - добавить страны: Беларусь, Украина, Казахстан
 - добавить тип: Предпраздничный день
+- уйти от зависмостей в внешних библиотек (requests)
 
