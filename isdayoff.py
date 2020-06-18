@@ -20,7 +20,7 @@ class ProdCalendar:
     URL = 'https://isdayoff.ru/'
     DATE_FORMAT = '%Y%m%d'
     CACHE_FILE_FORMAT = '%sisdayoff%i%s.txt'
-    LOCALES = ('ru', 'ua', 'kz', 'by')
+    LOCALES = ('ru', 'ua', 'kz', 'by', 'us')
 
     def __init__(self, locale: str = 'ru', cache: bool = True, cache_dir: str = 'cache/',
                  cache_year: int = date.today().year, freshness: timedelta = timedelta(days=30)):
