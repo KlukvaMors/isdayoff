@@ -125,3 +125,4 @@ dmypy.json
 
 .idea/
 cache/
+main.py
