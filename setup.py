@@ -8,7 +8,7 @@ setup(
     version='0.1.0',
     author='KlukvaMors',
     author_email='mkv-1724@mail.ru',
-    packages=['isdayoff.isdayoff'],
+    packages=['isdayoff'],
     license='LICENSE.md',
     description='Обёртка на API https://isdayoff.ru/',
     long_description=readme,
