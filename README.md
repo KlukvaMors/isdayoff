@@ -6,16 +6,11 @@
 
  **Unix/Lunix**
 
-переходим в нужную папку для установки и выполняем команды
+Переходим в нужную папку для установки и выполняем команды
 
 ```sh
-git clone https://github.com/KlukvaMors/isdayoff.git
-pip install -r isdayoff/requirements.txt
-mv isdayoff/isdayoff.py .
-rm -rf isdayoff
+pip install git+https://github.com/KlukvaMors/isdayoff.git
 ```
-
-
 
 ### Функциональность
 
